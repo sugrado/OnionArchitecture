@@ -104,7 +104,7 @@ public class EfRepositoryBase<TEntity, TContext> : IAsyncRepository<TEntity>, IR
                                                    include = null, int index = 0, int size = 10,
                                                bool enableTracking = true)
     {
-        IQueryable<TEntity> queryable = Query().AsQueryable().ToDynamic(dynamic);
+        IQueryable<TEntity> queryable = Query().ToDynamic(dynamic);
         if (!enableTracking) queryable = queryable.AsNoTracking();
         if (include != null) queryable = include(queryable);
         return queryable.ToPaginate(index, size);
