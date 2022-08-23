@@ -32,8 +32,7 @@ public class ExceptionMiddleware
 
         if (exception.GetType() == typeof(ValidationException)) return CreateValidationException(context, exception);
         if (exception.GetType() == typeof(BusinessException)) return CreateBusinessException(context, exception);
-        if (exception.GetType() == typeof(AuthorizationException))
-            return CreateAuthorizationException(context, exception);
+        if (exception.GetType() == typeof(AuthorizationException)) return CreateAuthorizationException(context, exception);
         return CreateInternalException(context, exception);
     }
 
